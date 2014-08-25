@@ -349,8 +349,8 @@ var updateTheme = function() {
 };
 
 var updateAspect = function() {
-    $poster.removeClass('poster-rect poster-square')
-        .addClass('poster-' + aspect);
+    $poster.removeClass('sixteen-by-nine square')
+        .addClass(aspect);
 };
 
 var updateAll = function() {
