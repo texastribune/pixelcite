@@ -37,14 +37,14 @@
                     <label for="source">Author / Source &dagger;</label>
                     <input id="source" name="source" class="form-control" />
                 </div>
-                <div class="form-group">
-                    <label for="source">Publication</label>
-                    <div class="btn-group btn-group-justified">
+                <div class="form-group" >
+                    <label for="publication">Publication</label>
+                    <div id="theme" class="btn-group btn-group-justified">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-default">Texas Tribune</button>
+                          <button type="button" class="btn btn-default btn-primary" id="tt">Texas Tribune</button>
                         </div>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-default">TribTalk</button>
+                          <button type="button" class="btn btn-default" id="talk">TribTalk</button>
                         </div>
                     </div>
                 </div>
@@ -55,13 +55,13 @@
                             <input id="fontsize" name="fontsize" class="form-control" value="32" />
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="fontsize">Aspect Ratio</label>
-                            <div class="btn-group btn-group-justified">
+                            <label for="as">Aspect Ratio</label>
+                            <div id="aspect" class="btn-group btn-group-justified">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default">Twitter <small>(16 x 9)</small></button>
+                                    <button type="button" class="btn btn-default btn-primary" id="square">Twitter <small>(16 x 9)</small></button>
                                 </div>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default">Instagram <small>(Square)</small></button>
+                                    <button type="button" class="btn btn-default" id="rect">Instagram <small>(Square)</small></button>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                 <label>{% if session.screen_name %}@{{ session.screen_name }}{% else %}@user{% endif %}</label>
                 <div id="display-status"></div>
             </div>
-            <div class="poster quote poster-tt">
+            <div class="poster quote poster-tt poster-rect">
 
                 <span class="left-quote">&ldquo;</span>
                 <blockquote><p></p></blockquote>

@@ -19,8 +19,10 @@ var $quote = null;
 var $source = null;
 var $fontSize = null;
 
-// var $textColor = null;
-// var $bgColor = null;
+var $themeButtons = null;
+var $aspectButtons = null;
+var theme = null;
+var aspect = null;
 
 var $login = null;
 var $tweet = null;
@@ -32,8 +34,8 @@ var exampleQuotes = [
         'quote': 'A social movement that only moves people is merely a revolt. A movement that changes both people and institutions is a revolution.',
         'source': 'Martin Luther King, Jr., <em>Why We Can\'t Wait</em>',
         'fontSize': 31,
-        // 'textColor': '#000000',
-        // 'bgColor': '#ffffff'
+        'aspect': 'square',
+        'theme': 'tt'
     }
 ];
 
@@ -54,8 +56,11 @@ var onDocumentReady = function() {
     $quote = $('#quote'); 
     $source = $('#source');
     $fontSize = $('#fontsize');
-    // $textColor = $('#text-color');
-    // $bgColor = $('#bg-color');
+    
+    $themeButtons = $('#theme .btn');
+    $aspectButtons = $('#aspect .btn');
+    theme = $('#theme .btn-primary').attr('id');
+    aspect = $('#aspect .btn-primary').attr('id');
 
     $login = $('#login');
     $save = $('#save');
@@ -67,31 +72,14 @@ var onDocumentReady = function() {
         max: 120
     });
 
-    // $textColor.ColorPickerSliders({
-    //     size: 'sm',
-    //     placement: 'bottom',
-    //     swatches: false,
-    //     sliders: false,
-    //     hsvpanel: true,
-    //     previewformat: 'hex',
-    //     onchange: onTextColorChange
-    // });
-
-    // $bgColor.ColorPickerSliders({
-    //     size: 'sm',
-    //     placement: 'bottom',
-    //     swatches: false,
-    //     sliders: false,
-    //     hsvpanel: true,
-    //     previewformat: 'hex',
-    //     onchange: onBackgroundColorChange
-    // });
-
     // Event binding
     $status.on('keyup change', onStatusKeyUp);
     $quote.on('keyup change', onQuoteKeyUp);
     $source.on('keyup change', onSourceKeyUp);
     $fontSize.on('change', onFontSizeChange);
+    
+    $themeButtons.on('click', onThemeChange);
+    $aspectButtons.on('click', onAspectChange);
 
     $login.on('click', onLoginClick);
     $tweet.on('click', onTweetClick);
@@ -104,14 +92,14 @@ var onDocumentReady = function() {
     }
 
     setQuote(quote);
-}
+};
 
 /*
  * Load an example quote.
  */
 var loadExampleQuote = function() {
     return exampleQuotes[Math.floor(Math.random() * exampleQuotes.length)];
-}
+};
 
 /*
  * Load quote from cookies.
@@ -126,10 +114,10 @@ var loadQuote = function() {
         'quote': $.cookie('quote'),
         'source': $.cookie('source'),
         'fontSize': $.cookie('fontSize'),
-        // 'textColor': $.cookie('textColor') || '#000000',
-        // 'bgColor': $.cookie('bgColor') || '#ffffff'
-    }
-}
+        'theme': $.cookie('theme'),
+        'aspect': $.cookie('aspect')
+    };
+};
 
 /*
  * Save quote to cookies.
@@ -138,10 +126,12 @@ var saveQuote = function() {
     $.cookie('status', $status.val());
     $.cookie('quote', $quote.val());
     $.cookie('source', $source.val());
-    // $.cookie('fontSize', $fontSize.val());
-    // $.cookie('textColor', $textColor.val());
-    $.cookie('bgColor', $bgColor.val());
-}
+    $.cookie('fontSize', $fontSize.val());
+    
+    $.cookie('theme', theme);
+    $.cookie('aspect', aspect);
+};
+
 
 /*
  * Update form with quote data.
@@ -151,8 +141,8 @@ var setQuote = function(quote) {
     $quote.val(quote['quote']);
     $source.val(quote['source']);
     $fontSize.val(quote['fontSize']);
-    // $textColor.trigger('colorpickersliders.updateColor', quote['textColor'])
-    // $bgColor.trigger('colorpickersliders.updateColor', quote['bgColor'])
+    theme = quote['theme'];
+    aspect = quote['aspect'];
 
     updateAll();
 }
@@ -161,7 +151,7 @@ var setQuote = function(quote) {
  * Smarten quotes.
  */
 var smarten = function(a) {
-    // opening singles
+    // opening singles d
     a = a.replace(/(^|[-\u2014\s(\["])'/g, "$1\u2018");
     // closing singles & apostrophes
     a = a.replace(/'/g, "\u2019");
@@ -299,7 +289,7 @@ var processUrl = function(url) {
     }
 
     return url;
-}
+};
 
 var updateStatus = function() {
     var status = $status.val();
@@ -330,11 +320,11 @@ var updateStatus = function() {
 
     $count.text(remaining);
     $count.toggleClass('negative', remaining < 0);
-}
+};
 
 var updateQuote = function() {
     $display_quote.html(smarten($quote.val()));
-}
+};
 
 var updateAttribution = function() {
     var source = $source.val();
@@ -345,34 +335,32 @@ var updateAttribution = function() {
     }
 
     $display_attribution.html(attr);
-}
+};
 
 var updateFontSize = function() {
     var fontSize = $fontSize.val().toString() + 'px';
 
     $poster.css('font-size', fontSize);
-}
+};
 
-// var updateTextColor = function() {
-//     var color  = $textColor.val().toString();
+var updateTheme = function() {
+    $poster.removeClass('poster-tt poster-talk')
+        .addClass('poster-' + theme);
+};
 
-//     $poster.css('color', color);
-// }
-
-// var updateBackgroundColor = function() {
-//     var color  = $bgColor.val().toString();
-
-//     $poster.css('background-color', color);
-// }
+var updateAspect = function() {
+    $poster.removeClass('poster-rect poster-square')
+        .addClass('poster-' + aspect);
+};
 
 var updateAll = function() {
     updateStatus();
     updateQuote();
     updateAttribution();
     updateFontSize();
-    // updateTextColor();
-    // updateBackgroundColor();
-}
+    updateTheme();
+    updateAspect();
+};
 
 var onStatusKeyUp = _.throttle(function() {
     updateStatus();
@@ -392,17 +380,25 @@ var onSourceKeyUp = _.throttle(function() {
 var onFontSizeChange = function() {
     updateFontSize();
     saveQuote();
-}
+};
 
-// var onTextColorChange = function() {
-//     updateTextColor();
-//     saveQuote();
-// }
+var onThemeChange = function() {
+    $themeButtons.removeClass().addClass('btn btn-default');
+    $(this).addClass('btn-primary');
+    theme = $(this).attr('id');
 
-// var onBackgroundColorChange = function() {
-//     updateBackgroundColor();
-//     saveQuote();
-// }
+    updateTheme();
+    saveQuote();
+};
+
+var onAspectChange = function() {
+    $aspectButtons.removeClass().addClass('btn btn-default');
+    $(this).addClass('btn-primary');
+    aspect = $(this).attr('id');
+
+    updateAspect();
+    saveQuote();
+};
 
 var onLoginClick = function() {
     ga('send', 'event', 'pixelcite', 'login');
