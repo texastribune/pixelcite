@@ -37,21 +37,36 @@
                     <label for="source">Author / Source &dagger;</label>
                     <input id="source" name="source" class="form-control" />
                 </div>
+                <div class="form-group">
+                    <label for="source">Publication</label>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default">Texas Tribune</button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default">TribTalk</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-md-4">
-                                <label for="fontsize">Font Size</label>
-                                <input id="fontsize" name="fontsize" class="form-control" value="32" />
+                            <label for="fontsize">Font Size</label>
+                            <input id="fontsize" name="fontsize" class="form-control" value="32" />
                         </div>
-                        <div class="form-group col-md-4">
-                                <label for="text-color">Text color</label>
-                                <input id="text-color" name="text-color" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-4">
-                                <label for="bg-color">Background color</label>
-                                <input id="bg-color" name="bg-color" type="text" class="form-control" />
+                        <div class="form-group col-md-8">
+                            <label for="fontsize">Aspect Ratio</label>
+                            <div class="btn-group btn-group-justified">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">Twitter <small>(16 x 9)</small></button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">Instagram <small>(Square)</small></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group col-md-12">
                             <p class="help-block">
@@ -61,8 +76,8 @@
                         </div>
                     </div>
                 </div>
-           </div>
             </form>
+            </div>
         </div>
 
         <div class="poster-wrapper col-md-12 col-lg-7">
@@ -70,14 +85,17 @@
                 <label>{% if session.screen_name %}@{{ session.screen_name }}{% else %}@user{% endif %}</label>
                 <div id="display-status"></div>
             </div>
-            <div class="poster">
+            <div class="poster quote poster-tt">
+
                 <span class="left-quote">&ldquo;</span>
                 <blockquote><p></p></blockquote>
 
                 <p class="attribution"></p>
 
                 <div class="logo-wrapper">
-                    <h1>Made with Pixelcite.com</h1>
+                    <img class="logo logo-tt" src="./assets/tt-logo.png">
+                    <img class="logo logo-talk" src="./assets/tribtalk-logo.png">
+                    <span class="logo text-talk">A publication of the Texas Tribune</span>
                 </div>
             </div>
             <div class="buttons">

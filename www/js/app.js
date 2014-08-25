@@ -18,8 +18,9 @@ var $count = null;
 var $quote = null;
 var $source = null;
 var $fontSize = null;
-var $textColor = null;
-var $bgColor = null;
+
+// var $textColor = null;
+// var $bgColor = null;
 
 var $login = null;
 var $tweet = null;
@@ -31,8 +32,8 @@ var exampleQuotes = [
         'quote': 'A social movement that only moves people is merely a revolt. A movement that changes both people and institutions is a revolution.',
         'source': 'Martin Luther King, Jr., <em>Why We Can\'t Wait</em>',
         'fontSize': 31,
-        'textColor': '#000000',
-        'bgColor': '#ffffff'
+        // 'textColor': '#000000',
+        // 'bgColor': '#ffffff'
     }
 ];
 
@@ -53,8 +54,8 @@ var onDocumentReady = function() {
     $quote = $('#quote'); 
     $source = $('#source');
     $fontSize = $('#fontsize');
-    $textColor = $('#text-color');
-    $bgColor = $('#bg-color');
+    // $textColor = $('#text-color');
+    // $bgColor = $('#bg-color');
 
     $login = $('#login');
     $save = $('#save');
@@ -66,25 +67,25 @@ var onDocumentReady = function() {
         max: 120
     });
 
-    $textColor.ColorPickerSliders({
-        size: 'sm',
-        placement: 'bottom',
-        swatches: false,
-        sliders: false,
-        hsvpanel: true,
-        previewformat: 'hex',
-        onchange: onTextColorChange
-    });
+    // $textColor.ColorPickerSliders({
+    //     size: 'sm',
+    //     placement: 'bottom',
+    //     swatches: false,
+    //     sliders: false,
+    //     hsvpanel: true,
+    //     previewformat: 'hex',
+    //     onchange: onTextColorChange
+    // });
 
-    $bgColor.ColorPickerSliders({
-        size: 'sm',
-        placement: 'bottom',
-        swatches: false,
-        sliders: false,
-        hsvpanel: true,
-        previewformat: 'hex',
-        onchange: onBackgroundColorChange
-    });
+    // $bgColor.ColorPickerSliders({
+    //     size: 'sm',
+    //     placement: 'bottom',
+    //     swatches: false,
+    //     sliders: false,
+    //     hsvpanel: true,
+    //     previewformat: 'hex',
+    //     onchange: onBackgroundColorChange
+    // });
 
     // Event binding
     $status.on('keyup change', onStatusKeyUp);
@@ -125,8 +126,8 @@ var loadQuote = function() {
         'quote': $.cookie('quote'),
         'source': $.cookie('source'),
         'fontSize': $.cookie('fontSize'),
-        'textColor': $.cookie('textColor') || '#000000',
-        'bgColor': $.cookie('bgColor') || '#ffffff'
+        // 'textColor': $.cookie('textColor') || '#000000',
+        // 'bgColor': $.cookie('bgColor') || '#ffffff'
     }
 }
 
@@ -137,8 +138,8 @@ var saveQuote = function() {
     $.cookie('status', $status.val());
     $.cookie('quote', $quote.val());
     $.cookie('source', $source.val());
-    $.cookie('fontSize', $fontSize.val());
-    $.cookie('textColor', $textColor.val());
+    // $.cookie('fontSize', $fontSize.val());
+    // $.cookie('textColor', $textColor.val());
     $.cookie('bgColor', $bgColor.val());
 }
 
@@ -150,8 +151,8 @@ var setQuote = function(quote) {
     $quote.val(quote['quote']);
     $source.val(quote['source']);
     $fontSize.val(quote['fontSize']);
-    $textColor.trigger('colorpickersliders.updateColor', quote['textColor'])
-    $bgColor.trigger('colorpickersliders.updateColor', quote['bgColor'])
+    // $textColor.trigger('colorpickersliders.updateColor', quote['textColor'])
+    // $bgColor.trigger('colorpickersliders.updateColor', quote['bgColor'])
 
     updateAll();
 }
@@ -352,25 +353,25 @@ var updateFontSize = function() {
     $poster.css('font-size', fontSize);
 }
 
-var updateTextColor = function() {
-    var color  = $textColor.val().toString();
+// var updateTextColor = function() {
+//     var color  = $textColor.val().toString();
 
-    $poster.css('color', color);
-}
+//     $poster.css('color', color);
+// }
 
-var updateBackgroundColor = function() {
-    var color  = $bgColor.val().toString();
+// var updateBackgroundColor = function() {
+//     var color  = $bgColor.val().toString();
 
-    $poster.css('background-color', color);
-}
+//     $poster.css('background-color', color);
+// }
 
 var updateAll = function() {
     updateStatus();
     updateQuote();
     updateAttribution();
     updateFontSize();
-    updateTextColor();
-    updateBackgroundColor();
+    // updateTextColor();
+    // updateBackgroundColor();
 }
 
 var onStatusKeyUp = _.throttle(function() {
@@ -393,15 +394,15 @@ var onFontSizeChange = function() {
     saveQuote();
 }
 
-var onTextColorChange = function() {
-    updateTextColor();
-    saveQuote();
-}
+// var onTextColorChange = function() {
+//     updateTextColor();
+//     saveQuote();
+// }
 
-var onBackgroundColorChange = function() {
-    updateBackgroundColor();
-    saveQuote();
-}
+// var onBackgroundColorChange = function() {
+//     updateBackgroundColor();
+//     saveQuote();
+// }
 
 var onLoginClick = function() {
     ga('send', 'event', 'pixelcite', 'login');
