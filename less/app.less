@@ -219,22 +219,23 @@ body {
 	}
 
 	.logo-wrapper {
-		position: absolute;
-		width: 100%;
-		z-index: 100;
-		bottom: 0;
-		left: 0;
-        vertical-align: bottom;
-		padding: 0 0 @grid-gutter-width @grid-gutter-width;
-		margin: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        padding: @grid-gutter-width/4 @grid-gutter-width/2;
+        // padding: 0 0 @grid-gutter-width @grid-gutter-width;
+        margin: 0;
+        font-size: 46px;
+        background-color: white;
 
-        h1 {
-            display: block !important;
-            float: left;
+        .logo {
+            .hide;
+        }
 
-            margin: 0;
-            padding: 0;
-            font-size: 14px;
+        img {
+            height: 40px;
         }
 	}
 
@@ -332,23 +333,5 @@ body {
 }
 
 .logo-wrapper {
-    position: absolute;
-    width: 100%;
-    z-index: 100;
-    bottom: 0;
-    right: 0;
-    text-align: left;
-    padding: @grid-gutter-width/4 @grid-gutter-width/2;
-    margin: 0;
-    font-size: 46px;
-    background: #fff;
-
-    .logo {
-        .hide;
-    }
-
-    img {
-        height: 40px;
-    }
 }
 

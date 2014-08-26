@@ -85,11 +85,11 @@ var onDocumentReady = function() {
     $tweet.on('click', onTweetClick);
     $save.on('click', onSaveClick);
 
-    var quote = loadQuote();   
+    // var quote = loadQuote();   
     
-    if (!quote) {
+    // if (!quote) {
         quote = loadExampleQuote();
-    }
+    // }
 
     setQuote(quote);
 };
@@ -127,7 +127,6 @@ var saveQuote = function() {
     $.cookie('quote', $quote.val());
     $.cookie('source', $source.val());
     $.cookie('fontSize', $fontSize.val());
-    
     $.cookie('theme', theme);
     $.cookie('aspect', aspect);
 };
