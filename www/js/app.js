@@ -21,8 +21,10 @@ var $fontSize = null;
 
 var $themeButtons = null;
 var $aspectButtons = null;
+var $quotationMarksButtons = null;
 var theme = null;
 var aspect = null;
+var quotationMarks = null;
 
 var $login = null;
 var $tweet = null;
@@ -34,8 +36,9 @@ var exampleQuotes = [
         'quote': 'A social movement that only moves people is merely a revolt. A movement that changes both people and institutions is a revolution.',
         'source': 'Martin Luther King, Jr., <em>Why We Can\'t Wait</em>',
         'fontSize': 31,
-        'aspect': 'square',
-        'theme': 'tt'
+        'aspect': 'sixteen-by-nine',
+        'theme': 'tt',
+        'quotationMarks': 'quotes-on'
     }
 ];
 
@@ -59,8 +62,10 @@ var onDocumentReady = function() {
     
     $themeButtons = $('#theme .btn');
     $aspectButtons = $('#aspect .btn');
+    $quotationMarksButtons = $('#quotation-marks .btn');
     theme = $('#theme .btn-primary').attr('id');
     aspect = $('#aspect .btn-primary').attr('id');
+    quotationMarks = $('#quotation-marks .btn-primary').attr('id');
 
     $login = $('#login');
     $save = $('#save');
@@ -80,6 +85,8 @@ var onDocumentReady = function() {
     
     $themeButtons.on('click', onThemeChange);
     $aspectButtons.on('click', onAspectChange);
+    $quotationMarksButtons.on('click', onQuotationMarksChange);
+
 
     $login.on('click', onLoginClick);
     $tweet.on('click', onTweetClick);
@@ -115,7 +122,8 @@ var loadQuote = function() {
         'source': $.cookie('source'),
         'fontSize': $.cookie('fontSize'),
         'theme': $.cookie('theme'),
-        'aspect': $.cookie('aspect')
+        'aspect': $.cookie('aspect'),
+        'quotationMarks': $.cookie('quotationMarks')
     };
 };
 
@@ -129,6 +137,7 @@ var saveQuote = function() {
     $.cookie('fontSize', $fontSize.val());
     $.cookie('theme', theme);
     $.cookie('aspect', aspect);
+    $.cookie('quotationMarks', quotationMarks);
 };
 
 
@@ -142,6 +151,7 @@ var setQuote = function(quote) {
     $fontSize.val(quote['fontSize']);
     theme = quote['theme'];
     aspect = quote['aspect'];
+    quotationMarks = quote['quotationMarks'];
 
     updateAll();
 }
@@ -352,6 +362,11 @@ var updateAspect = function() {
         .addClass(aspect);
 };
 
+var updateQuotationMarks = function() {
+    $poster.removeClass('quotes-on quotes-off')
+        .addClass(quotationMarks);
+};
+
 var updateAll = function() {
     updateStatus();
     updateQuote();
@@ -359,6 +374,7 @@ var updateAll = function() {
     updateFontSize();
     updateTheme();
     updateAspect();
+    updateQuotationMarks();
 };
 
 var onStatusKeyUp = _.throttle(function() {
@@ -399,18 +415,28 @@ var onAspectChange = function() {
     saveQuote();
 };
 
+var onQuotationMarksChange = function() {
+    $quotationMarksButtons.removeClass().addClass('btn btn-default');
+    $(this).addClass('btn-primary');
+    quotationMarks = $(this).attr('id');
+
+    updateQuotationMarks();
+    saveQuote();
+};
+
+
 var onLoginClick = function() {
     ga('send', 'event', 'pixelcite', 'login');
 
     window.location.href = '/authenticate/';
-}
+};
 
 var onTweetClick = function() {
     getImage(tweet);
-}
+};
 
 var onSaveClick =  function() {
     getImage(saveImage);
-}
+};
 
 $(onDocumentReady);

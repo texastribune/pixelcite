@@ -48,25 +48,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="as">Aspect Ratio</label>
+                    <div id="aspect" class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-primary" id="sixteen-by-nine">Twitter <small>(16 x 9)</small></button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" id="square">Instagram <small>(Square)</small></button>
+                        </div>
+                    </div>
+                </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label for="fontsize">Font Size</label>
                             <input id="fontsize" name="fontsize" class="form-control" value="32" />
                         </div>
-                        <div class="form-group col-md-8">
-                            <label for="as">Aspect Ratio</label>
-                            <div id="aspect" class="btn-group btn-group-justified">
+                        <div class="form-group col-md-6">
+                            <label for="quotation-marks">Quotation Marks</label>
+                            <div id="quotation-marks" class="btn-group btn-group-justified">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-primary" id="sixteen-by-nine">Twitter <small>(16 x 9)</small></button>
+                                  <button type="button" class="btn btn-default btn-primary" id="quotes-on">On</button>
                                 </div>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default" id="square">Instagram <small>(Square)</small></button>
+                                  <button type="button" class="btn btn-default" id="quotes-off">Off</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group col-md-12">
                             <p class="help-block">
@@ -85,7 +95,7 @@
                 <label>{% if session.screen_name %}@{{ session.screen_name }}{% else %}@user{% endif %}</label>
                 <div id="display-status"></div>
             </div>
-            <div class="poster quote poster-tt sixteen-by-nine">
+            <div class="poster quote poster-tt quotes-on sixteen-by-nine">
 
                 <span class="left-quote">&ldquo;</span>
                 <blockquote><p></p></blockquote>
@@ -95,7 +105,7 @@
                 <div class="logo-wrapper">
                     <img class="logo logo-tt" src="./assets/tt-logo.png">
                     <img class="logo logo-talk" src="./assets/tribtalk-logo.png">
-                    <!-- <span class="logo text-talk">A publication of the Texas Tribune</span> -->
+                    <span class="logo text-talk">A publication of the Texas Tribune</span>
                 </div>
             </div>
             <div class="buttons">
