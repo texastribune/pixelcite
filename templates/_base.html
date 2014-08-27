@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <!-- CSS -->
+        <!-- CSS -->
+    {{ CSS.push('css/hfj.css') }}
     {{ CSS.push('less/app.less') }}
     {{ CSS.push('css/bootstrap.colorpickersliders.css') }}
     {% block extra_css %}{% endblock extra_css %}
@@ -33,12 +34,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_152x152.png"/>
 
     <!-- SOCIAL -->
-    <meta name="twitter:card" content="photo">
-    <meta name="twitter:site" content="{{ COPY.share.twitter_handle }}">
-    <meta name="twitter:image:src" content="{{ COPY.share.twitter_image_url }}" />
-    <meta name="twitter:title" content="{{ COPY.share.twitter_text }}" />
-    <meta name="twitter:domain" content="{{ COPY.content.project_name }}" />
-    <meta property="twitter:account_id" content="4503599630311826" />
+    <!--
+        <meta name="twitter:card" content="photo">
+        <meta name="twitter:site" content="{{ COPY.share.twitter_handle }}">
+        <meta name="twitter:image:src" content="{{ COPY.share.twitter_image_url }}" />
+        <meta name="twitter:title" content="{{ COPY.share.twitter_text }}" />
+        <meta name="twitter:domain" content="{{ COPY.content.project_name }}" />
+        <meta property="twitter:account_id" content="4503599630311826" />
+    -->
 
     {% block extra_head %}
     {% endblock extra_head %}
@@ -53,7 +56,6 @@
     {{ JS.push('js/lib/jquery.cookie.js') }}
     {{ JS.push('js/lib/jquery.bootstrap-touchspin.js') }}
     {{ JS.push('js/lib/tinycolor.js') }}
-    {{ JS.push('js/lib/bootstrap.colorpickersliders.js') }}
     {{ JS.push('js/lib/html2canvas.js') }}
     {{ JS.push('js/lib/twitter-text.js') }}
     {{ JS.push('js/app_config.js') }}

@@ -32,10 +32,10 @@ var $save = null;
 
 var exampleQuotes = [
     {
-        'status': 'Words of wisdom.',
-        'quote': 'A social movement that only moves people is merely a revolt. A movement that changes both people and institutions is a revolution.',
-        'source': 'Martin Luther King, Jr., <em>Why We Can\'t Wait</em>',
-        'fontSize': 31,
+        'status': 'Davy Crockett\'s comments on his final election defeat:',
+        'quote': 'You may all go to Hell, and I will go to Texas.',
+        'source': 'Davy Crockett, <em>Aug. 11, 1835</em>',
+        'fontSize': 40,
         'aspect': 'sixteen-by-nine',
         'theme': 'tt',
         'quotationMarks': 'quotes-on'
@@ -440,3 +440,4 @@ var onSaveClick =  function() {
 };
 
 $(onDocumentReady);
+
