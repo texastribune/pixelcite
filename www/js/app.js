@@ -36,7 +36,7 @@ var exampleQuotes = [
         'quote': 'You may all go to Hell, and I will go to Texas.',
         'source': 'Davy Crockett, <em>Aug. 11, 1835</em>',
         'fontSize': 40,
-        'aspect': 'sixteen-by-nine',
+        'aspect': 'rectangle',
         'theme': 'tt',
         'quotationMarks': 'quotes-on'
     }
@@ -358,7 +358,7 @@ var updateTheme = function() {
 };
 
 var updateAspect = function() {
-    $poster.removeClass('sixteen-by-nine square')
+    $poster.removeClass('rectangle square')
         .addClass(aspect);
 };
 
