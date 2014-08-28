@@ -12,5 +12,8 @@ RUN npm install
 
 ADD . /app/
 
+# RUN apt-get install -yq zip
+# RUN touch butts && zip -m data/copy.xlsx butts
+
 EXPOSE 8000
 CMD ["python", "public_app.py"]
