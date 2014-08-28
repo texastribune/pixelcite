@@ -24,9 +24,9 @@ REPOSITORY_ALT_URL = None # 'git@bitbucket.org:texastribune/%s.git' % REPOSITORY
 """
 DEPLOYMENT
 """
-PRODUCTION_S3_BUCKETS = ['media.pixelcite.com']
+PRODUCTION_S3_BUCKETS = ['pixelcite-prod']
 STAGING_S3_BUCKETS = []
-ASSETS_S3_BUCKET = 'assets.pixelcite.com'
+ASSETS_S3_BUCKET = 'pixelcite-assets'
 
 PRODUCTION_SERVERS = ['pixelcite.com']
 STAGING_SERVERS = []
@@ -71,7 +71,7 @@ DEBUG = True
 """
 COPY EDITING
 """
-COPY_GOOGLE_DOC_URL = 'https://docs.google.com/spreadsheet/ccc?key=0AlXMOHKxzQVRdFBMX0xCcF9CZnpmUDUtazFwODV5dlE'
+COPY_GOOGLE_DOC_URL = 'https://docs.google.com/spreadsheet/pub?key=0AqrvWGz8mwTidG9saWF2ZHZoR0p1STU0MTN6NjYyNFE&output=html'
 COPY_PATH = 'data/copy.xlsx'
 
 """
