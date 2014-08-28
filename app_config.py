@@ -18,8 +18,8 @@ PROJECT_FILENAME = 'pixelcite'
 
 # The name of the repository containing the source
 REPOSITORY_NAME = 'pixelcite'
-REPOSITORY_URL = 'git@github.com:onyxfish/%s.git' % REPOSITORY_NAME
-REPOSITORY_ALT_URL = None # 'git@bitbucket.org:onyxfish/%s.git' % REPOSITORY_NAME'
+REPOSITORY_URL = 'git@github.com:texastribune/%s.git' % REPOSITORY_NAME
+REPOSITORY_ALT_URL = None # 'git@bitbucket.org:texastribune/%s.git' % REPOSITORY_NAME'
 
 """
 DEPLOYMENT
