@@ -7,3 +7,9 @@ run:
 
 shell:
 	docker run --rm -i -t texastribune/pixelcite bash
+
+save:
+	docker save texastribune/pixelcite | gzip > /tmp/pixelcite.tar.gz
+
+push: save
+	aws s3 cp /tmp/pixelcite.tar.gz s3://pixelcite-utility/docker/pixelcite.tar.gz
