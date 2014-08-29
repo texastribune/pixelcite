@@ -5,6 +5,17 @@ run:
 	docker run --rm --name pixelcite --env-file env-docker -p 8000:8000 \
 	  texastribune/pixelcite
 
+
+run_debug:
+	docker run --rm --name pixelcite --env-file env-docker -p 8000:8000 \
+	  texastribune/pixelcite
+
+# for testing the raw gunicorn server
+test_gunicorn:
+	docker run --rm --name pixelcite --env-file env-docker -p 8000:8000 \
+	  --entrypoint /usr/local/bin/gunicorn texastribune/pixelcite \
+	  -c /app/gunicorn.py --bind 0.0.0.0:8000 public_app:app
+
 shell:
 	docker run --rm -i -t texastribune/pixelcite bash
 
