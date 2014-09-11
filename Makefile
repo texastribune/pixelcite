@@ -5,6 +5,11 @@ run:
 	docker run --rm --name pixelcite --env-file env-docker -p 8000:8000 \
 	  texastribune/pixelcite
 
+debug:
+	docker run --volumes-from pixelcite -i -t ubuntu /bin/bash
+
+tail:
+	docker run --volumes-from pixelcite -i -t ubuntu tail -f /app/logs/*.log
 
 run_debug:
 	docker run --rm --name pixelcite --env-file env-docker -p 8000:8000 \
