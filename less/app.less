@@ -10,6 +10,8 @@
 @black: #000;
 @white: #fff;
 @talkBrightGreen: #8ac200;
+@ticketRed: #E23A26;
+@ticketBlue: #14394C;
 
 html {
 	min-width: 680px;
@@ -32,18 +34,18 @@ body {
 
 #footer {
     text-align: center;
-    
+
     ul {
         padding: 0;
         margin: 0;
     }
 
     li {
-        display: inline; 
+        display: inline;
         white-space: nowrap;
 
         &:after {
-            content: "\00a0\00a0\00b7\00a0\00a0";  
+            content: "\00a0\00a0\00b7\00a0\00a0";
         }
 
         &:last-child:after {
@@ -58,7 +60,7 @@ body {
         li {
             display: block;
             padding-bottom: 4px;
-        
+
             &:after {
                 content: "";
             }
@@ -151,7 +153,7 @@ body {
     label {
         color: #888;
     }
-    
+
     @media screen and (max-width: @screen-md-max) {
         float: left;
         width: @small-control-width;
@@ -306,7 +308,7 @@ body {
         font-family: 'freight-sans-pro', helvetica;
         background: @black;
         color: @white;
-        
+
         &.quotes-on blockquote {
             margin-left: 0.95em;
         }
@@ -322,10 +324,7 @@ body {
             font-weight: 700;
             font-size: 1.5em;
         }
-        
-        .left-quote {
 
-        }
         p:last-child:after {
             top: 0.1em;
             position: relative;
@@ -364,6 +363,39 @@ body {
         }
     }
 
+    &.poster-ticket {
+        font-family: 'freight-sans-pro', helvetica;
+        background: @black;
+        color: @white;
+
+        &.quotes-on blockquote {
+            margin-left: 0.95em;
+        }
+
+        .logo {
+            border: 1px solid @white;
+        }
+
+        .left-quote,
+        p:last-child:after {
+            color: @ticketRed;
+            font-family: 'freight-sans-pro', helvetica;
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        p:last-child:after {
+            top: 0.1em;
+            position: relative;
+            margin-left: 0.05em;
+            vertical-align: bottom;
+        }
+
+        .logo-wrapper {
+            background: @ticketBlue;
+        }
+    }
+
 }
 
 .buttons {
@@ -373,7 +405,7 @@ body {
     @media screen and (max-width: @screen-md-max){
         float: left;
     }
-    
+
     @media screen and (max-width: @screen-xs-max){
         #save {
             display: none;
