@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pixelcite | Texas Tribune</title>
+
+    <!-- META TAGS -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <!-- CSS -->
+    
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="css/hfj.css" />
+<link rel="stylesheet" type="text/css" href="css/app.less.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.colorpickersliders.css" />
+
+    <!-- JS -->
+    
+    <script type="text/javascript" src="js/lib/modernizr.js"></script>
+
+   <!-- Font loader -->
+    <script src="//use.typekit.net/fky5msz.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <!-- Apple stuff -->
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="//s3.amazonaws.com/static.texastribune.org/media/icons/iPhone_Icon_60x60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="//s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_76x76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="//s3.amazonaws.com/static.texastribune.org/media/icons/iPhone_Icon_120x120.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_152x152.png"/>
+
+
+    
+    
+</head>
+<body>
+    
+<div id="page-wrap">
+
+<div id="header" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Social Quotations <small>for The Texas Tribune</small></h1>
+            <div class="twitter">
+                
+                <button id="login" class="btn btn-primary"><i class="fa fa-twitter"></i> Login with Twitter</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="controls container">
+    <div class="row">
+        <div class="form-wrapper col-md-12 col-lg-5">
+            <div class="controls-wrapper">
+            <form role="form">
+                <div class="form-group">
+                    <label for="status">Tweet text *</label>
+                    <textarea id="status" name="status" class="form-control"></textarea>
+                    <div class="count"></div>
+                </div>
+                <div class="form-group">
+                    <label for="quotetext">Quote &dagger;</label>
+                    <textarea id="quote" name="quote" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="source">Author / Source &dagger;</label>
+                    <input id="source" name="source" class="form-control" />
+                </div>
+                <div class="form-group" >
+                    <label for="publication">Publication</label>
+                    <div id="theme" class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default btn-primary" id="tt">Texas Tribune</button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default" id="talk">TribTalk</button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default" id="ticket">The Ticket</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="as">Aspect Ratio</label>
+                    <div id="aspect" class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-primary" id="sixteen-by-nine">Twitter <small>(16 x 9)</small></button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" id="square">Instagram <small>(Square)</small></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="fontsize">Font Size</label>
+                            <input id="fontsize" name="fontsize" class="form-control" value="32" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="quotation-marks">Quotation Marks</label>
+                            <div id="quotation-marks" class="btn-group btn-group-justified">
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-default btn-primary" id="quotes-on">On</button>
+                                </div>
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-default" id="quotes-off">Off</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <p class="help-block">
+                                * Pixelcite adds affiliate codes to some URLs.<br />
+                                &dagger; HTML is allowed. Use &lt;br /&gt; for line breaks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+
+        <div class="poster-wrapper col-md-12 col-lg-7">
+            <div id="display-wrapper">
+                <label>@user</label>
+                <div id="display-status"></div>
+            </div>
+            <div class="poster quote poster-tt quotes-on sixteen-by-nine">
+
+                <span class="left-quote">&lsquo;&lsquo;</span>
+                <blockquote><p></p></blockquote>
+
+                <p class="attribution"></p>
+
+                <div class="logo-wrapper">
+                    <img class="logo logo-tt" src="./assets/tt-logo.png">
+                    <img class="logo logo-talk" src="./assets/tribtalk-logo.png">
+                    <span class="logo text-talk">A publication of the Texas Tribune</span>
+                    <img class="logo logo-ticket" src="./assets/theticket-logos.png">
+                </div>
+            </div>
+            <div class="buttons">
+                
+                <a class="btn btn-primary" href="/authenticate/"><i class="fa fa-twitter"></i> Login to Tweet</a>
+                
+                <button id="save" class="btn btn-default"><i class="fa fa-download"></i> Save image</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="push"></div>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li>Based on <a href="https://twitter.com/nprviz">@nprviz</a>'s <a href="https://github.com/nprapps/quotable">quotable</a> and forked from <a href="https://twitter.com/onyxfish">@onyxfish</a>'s <a href="http://pixelcite.com/">pixelcite</a>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/underscore.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap.js"></script>
+<script type="text/javascript" src="js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/lib/jquery.bootstrap-touchspin.js"></script>
+<script type="text/javascript" src="js/lib/tinycolor.js"></script>
+<script type="text/javascript" src="js/lib/html2canvas.js"></script>
+<script type="text/javascript" src="js/lib/twitter-text.js"></script>
+<script type="text/javascript" src="js/app_config.js"></script>
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+    
+    
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', APP_CONFIG.GOOGLE_ANALYTICS.ACCOUNT_ID, 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
