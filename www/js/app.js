@@ -56,10 +56,10 @@ var onDocumentReady = function() {
     $logo_wrapper = $('.logo-wrapper');
 
     $status = $('#status');
-    $quote = $('#quote'); 
+    $quote = $('#quote');
     $source = $('#source');
     $fontSize = $('#fontsize');
-    
+
     $themeButtons = $('#theme .btn');
     $aspectButtons = $('#aspect .btn');
     $quotationMarksButtons = $('#quotation-marks .btn');
@@ -82,7 +82,7 @@ var onDocumentReady = function() {
     $quote.on('keyup change', onQuoteKeyUp);
     $source.on('keyup change', onSourceKeyUp);
     $fontSize.on('change', onFontSizeChange);
-    
+
     $themeButtons.on('click', onThemeChange);
     $aspectButtons.on('click', onAspectChange);
     $quotationMarksButtons.on('click', onQuotationMarksChange);
@@ -92,8 +92,8 @@ var onDocumentReady = function() {
     $tweet.on('click', onTweetClick);
     $save.on('click', onSaveClick);
 
-    // var quote = loadQuote();   
-    
+    // var quote = loadQuote();
+
     // if (!quote) {
         quote = loadExampleQuote();
     // }
@@ -172,7 +172,7 @@ var smarten = function(a) {
     a = a.replace(/--/g, "\u2014");
     // full spaces wrapping em dash
     a = a.replace(/ \u2014 /g, "\u2009\u2014\u2009");
-    
+
     return a;
 }
 
@@ -287,7 +287,7 @@ var processUrl = function(url) {
         if (match) {
             var existingTag = match[1];
 
-            return url.replace(existingTag, pixelciteTag); 
+            return url.replace(existingTag, pixelciteTag);
         }
 
         if (parser.search) {
@@ -353,7 +353,7 @@ var updateFontSize = function() {
 };
 
 var updateTheme = function() {
-    $poster.removeClass('poster-tt poster-talk')
+    $poster.removeClass('poster-tt poster-talk poster-ticket')
         .addClass('poster-' + theme);
 };
 
